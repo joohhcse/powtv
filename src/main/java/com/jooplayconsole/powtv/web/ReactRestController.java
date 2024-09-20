@@ -1,9 +1,12 @@
 package com.jooplayconsole.powtv.web;
 
+import com.jooplayconsole.powtv.model.entity.PostDto;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +28,16 @@ public class ReactRestController {
         }
 
         return data;
+    }
+
+    @GetMapping("/api/posts")
+    public List<PostDto> getPosts() {
+        List<PostDto> posts = new ArrayList<>();
+        posts.add(new PostDto("Recommended: ITZY YUNA Performance", "Watch the latest performance from ITZY YUNA.", "XxXxXxXxXx", 347, 23, 6));
+        posts.add(new PostDto("Recommended: Christmas in New York", "Explore the Christmas spirit in NYC.", "YyYyYyYyYy", 441, 34, 14));
+        posts.add(new PostDto("Top 5 Fashion Trends", "See the latest fashion trends this year.", "ZzZzZzZzZz", 123, 45, 12));
+
+        return posts;
     }
 
 }
